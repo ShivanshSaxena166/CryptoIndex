@@ -49,7 +49,7 @@ const headers=[{"head1":returnButton("name"),"head2":returnButton("price"),"head
 const getCoinMarketData = async () => {
     try{
   const response = await fetch(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Cmonero%2Cbinancecoin%2Clitecoin%2Cpolygen&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Cmonero%2Cbinancecoin%2Clitecoin%2Cpolygen%2Ccardano&order=market_cap_desc&per_page=100&page=1&sparkline=false"
   );
   console.log("called")
  var data1= await response.json()
@@ -72,7 +72,7 @@ useEffect(() => {
     console.log(seconds)
   getCoinMarketData()
 
-},5000)
+},50000)
   return () => clearInterval(interval);
 }, [])
 

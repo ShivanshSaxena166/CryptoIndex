@@ -7,7 +7,7 @@ const COLORS={primary:'#1f145c',white:'#fff',black:'#000000',Green:'#00FF00',red
 
 export function ListItem({coin}){
 
-console.log(coin.image)
+console.log(coin.price_change_24h)
 return (
  
   <View style={styles.containerItem}>
@@ -32,10 +32,10 @@ return (
 
     </View>
     <View style={styles.coinName3}>
-      <Text style={styles.text}> {(JSON.stringify(coin.price_change_24h)).slice(0,6)}</Text>
+      <Text style={coin.price_change_24h>0?styles.textUp:styles.textDown}> {(JSON.stringify(coin.price_change_24h)).slice(0,6)}</Text>
     </View>
     <View style={styles.coinName4}>
-      <Text style={styles.text}> {(JSON.stringify(coin.price_change_percentage_24h)).slice(0,4)}</Text>
+      <Text style={coin.price_change_24h>0?styles.textUp:styles.textDown}> {(JSON.stringify(coin.price_change_percentage_24h)).slice(0,4)}</Text>
     </View>
 
   </View>
@@ -89,6 +89,14 @@ const styles = StyleSheet.create({
   
   text: {
     color: 'black',
+    textAlign:'right'
+  },
+  textDown: {
+    color: 'red',
+    textAlign:'right'
+  },
+  textUp: {
+    color: 'green',
     textAlign:'right'
   },
   textPrice: {

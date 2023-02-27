@@ -23,23 +23,53 @@ if(marketData!=undefined)
  var data=[...marketData]
  if(data!=undefined)
     {data = data.sort((a, b) => {
-if(col[place])
-{ 
+
         console.log(a[key1])
         console.log(b[key1])
-        if ((a[key1] < b[key1])) {
-          return -1;
+
+        if(col[place])
+        {
+            if ((parseFloat(a[key1])<parseFloat(b[key1]))) {
+          return -1
+          
      
         
-        }}
-        if(!col[place])
-        {
-            if ((a[key1] > b[key1])) {
-                return -1;}
         }
+        else if(parseFloat(a[key1])>=parseFloat(b[key1]))
+          { 
+            return 1
+            
+          }
         
-      });
-      col[place]=!col[place]
+        }
+          if(!col[place])
+          {
+            if ((parseFloat(a[key1])<parseFloat(b[key1]))) {
+                return 1
+                
+           
+              
+              }
+              else if(parseFloat(a[key1])>=parseFloat(b[key1]))
+                { 
+                  return -1
+                  
+                }
+          }
+         
+    
+    })
+
+
+
+        // if(!col[place])
+        // {
+        //     if ((parseFloat(a[key1]) > parseFloat(b[key1]))) {
+        //         return -1;}
+        // }
+        
+     col[place]=!col[place]
+    
       console.log(col)
       setcoloumnsort(col)
 
